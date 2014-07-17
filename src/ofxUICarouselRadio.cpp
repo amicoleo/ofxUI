@@ -13,7 +13,7 @@ ofxUICarouselRadio::ofxUICarouselRadio(string _name, vector<string> names, int _
 void ofxUICarouselRadio::init(string _name, vector<string> names, int _orientation, float w, float h, float x, float y, int _size) {
     initRect(x,y,w,h);
     name = string(_name);
-    kind = OFX_UI_WIDGET_RADIO; //TODO - change this
+    kind = OFX_UI_WIDGET_CAROUSELRADIO;
 
     draw_back = false;
     orientation = _orientation;
