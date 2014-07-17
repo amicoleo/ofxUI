@@ -16,8 +16,10 @@ public:
 	void setParent(ofxUIWidget *_parent);
 	void setActiveName(string labelName);
 	string getActiveName();
-    void addLabelName(string labelName);
 
+	//TODO - the method below works - but if the widget is updated after it has been added to the
+	//gui, it doesn't get drawn
+    void addLabelName(string labelName);
 
 protected:
     string activeName;

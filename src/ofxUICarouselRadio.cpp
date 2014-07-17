@@ -253,5 +253,46 @@ string ofxUICarouselRadio::getActiveName(){
 void ofxUICarouselRadio::addLabelName(string labelName){
     ofxUILabel *label = new ofxUILabel(0, 0, labelName,labelName, activeLabel->getSize());
     addEmbeddedWidget(label);
+    parent->addWidget(label);
     labels.push_back(label);
+
+    float lWidth = 0;
+    float lHeight = 0;
+
+    float xl = 0;
+    float yl = 0;
+
+
+    //Reposition elements with the first of the list as the first
+    if(orientation == OFX_UI_ORIENTATION_HORIZONTAL)
+    {
+    }
+    else
+    {
+        yl = upButton->getPaddingRect()->getHeight();
+        if(upButton->getPaddingRect()->width > lWidth){
+            lWidth = upButton->getPaddingRect()->width;//?!?
+        }
+        lHeight+= upButton->getPaddingRect()->height;
+    }
+    for(unsigned int i = 0; i < labels.size(); i++)
+    {
+        ofxUILabel* l = labels[i];
+        cout<<"i: "<<i<<" - label: "<<l->getName()<<endl;
+        if(orientation == OFX_UI_ORIENTATION_HORIZONTAL)
+        {
+        }
+        else
+        {
+            l->getRect()->x = 0;
+            l->getRect()->y = yl;
+            yl +=l->getPaddingRect()->getHeight();
+            if (i == 0){
+                lHeight+= l->getPaddingRect()->height;
+                l->setVisible(true);
+            }
+            else
+                l->setVisible(false);
+        }
+    }
 }
