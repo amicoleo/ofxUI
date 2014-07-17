@@ -14,6 +14,7 @@ public:
     void triggerSelf();
     void triggerEvent(ofxUIWidget *child);
 	void setParent(ofxUIWidget *_parent);
+	void setActiveName(string labelName);
 	string getActiveName();
     void addLabelName(string labelName);
 
