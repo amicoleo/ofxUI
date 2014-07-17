@@ -62,3 +62,4 @@
 #include "ofxUIBaseDraws.h"
 #include "ofxUIImageSampler.h"
 #include "ofxUIScrollableRadio.h"
+#include "ofxUICarouselRadio.h"
