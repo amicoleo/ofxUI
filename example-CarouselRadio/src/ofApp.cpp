@@ -1,7 +1,24 @@
 #include "ofApp.h"
 
+vector<string> names;
+
+
 //--------------------------------------------------------------
 void ofApp::setup(){
+    names.resize(0);
+    names.push_back("RAD1");
+    names.push_back("RAD2");
+    names.push_back("RAD3");
+    names.push_back("RAD4");
+    names.push_back("RAD5");
+    names.push_back("RAD6");
+    names.push_back("RAD7");
+    names.push_back("RAD8");
+    names.push_back("RAD9");
+    names.push_back("RAD10");
+    names.push_back("RAD11");
+    names.push_back("RAD12");
+
     ofBackground(10);
 	setGUI();
 }
@@ -44,20 +61,8 @@ void ofApp::setGUI()
 	gui = new ofxUISuperCanvas("SCROLLABLE RADIO");
     gui->addSpacer();
 
-    vector<string> names;
-    names.resize(0);
-	names.push_back("RAD1");
-	names.push_back("RAD2");
-	names.push_back("RAD3");
-	names.push_back("RAD4");
-	names.push_back("RAD5");
-	names.push_back("RAD6");
-	names.push_back("RAD7");
-	names.push_back("RAD8");
-	names.push_back("RAD9");
-	names.push_back("RAD10");
-	names.push_back("RAD11");
-	names.push_back("RAD12");
+
+
 
 	ofxUICarouselRadio* radVer = new ofxUICarouselRadio("RADIO", names, OFX_UI_ORIENTATION_VERTICAL, 10, 10, 0, 0, OFX_UI_FONT_SMALL);
 	gui->addWidgetDown(radVer);
@@ -69,6 +74,8 @@ void ofApp::setGUI()
         w->setColorBack(ofColor::yellow);
     }
 
+
+
     gui->autoSizeToFitWidgets();
 
 	ofAddListener(gui->newGUIEvent,this,&ofApp::guiEvent);
@@ -76,7 +83,10 @@ void ofApp::setGUI()
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-
+    if (key == '0'){
+        ofxUICarouselRadio* radVer = (ofxUICarouselRadio*) gui->getWidget("RADIO");
+        radVer->setActiveName("RAD2");
+    }
 }
 
 //--------------------------------------------------------------

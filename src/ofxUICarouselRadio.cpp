@@ -140,12 +140,7 @@ void ofxUICarouselRadio::setParent(ofxUIWidget *_parent) {
             if (i == 0){
                 activeLabel = l;
                 lHeight+= l->getPaddingRect()->height;
-                l->setColorBack(ofColor::white);
-                l->setColorFill(ofColor::white);
-                l->setColorFillHighlight(ofColor::white);
-                l->setColorOutline(ofColor::white);
-                cout<<l->getName()<<endl<<endl<<endl<<endl<<endl; //NO
-                l->setVisible(true); //NO
+                l->setVisible(true);
             }
 
             else
@@ -186,11 +181,118 @@ void ofxUICarouselRadio::setParent(ofxUIWidget *_parent) {
     calculatePaddingRect();
 
 }
+void ofxUICarouselRadio::setActiveName(string labelName){
+
+    //Check if label exists
+    bool bLabelExist = false;
+    for(unsigned int i = 0; i < labels.size(); i++){
+        if (labels[i]->getName() == labelName)
+            bLabelExist = true;
+    }
+
+    if (bLabelExist){
+        float lWidth = 0;
+        float lHeight = 0;
+
+        float xl = 0;
+        float yl = 0;
+
+
+        //Reposition elements with the first of the list as the first
+        if(orientation == OFX_UI_ORIENTATION_HORIZONTAL)
+        {
+        }
+        else
+        {
+            yl = upButton->getPaddingRect()->getHeight();
+            if(upButton->getPaddingRect()->width > lWidth){
+                lWidth = upButton->getPaddingRect()->width;//?!?
+            }
+            lHeight+= upButton->getPaddingRect()->height;
+        }
+
+        for(unsigned int i = 0; i < labels.size(); i++)
+        {
+            ofxUILabel* l = labels[i];
+            if(orientation == OFX_UI_ORIENTATION_HORIZONTAL)
+            {
+            }
+            else
+            {
+                l->getRect()->x = 0;
+                l->getRect()->y = yl;
+                yl +=l->getPaddingRect()->getHeight();
+                if (i == 0){
+                    lHeight+= l->getPaddingRect()->height;
+                }
+            }
+        }
+
+        //Now scroll until the active one is reached - and send event
+        for(unsigned int i = 0; i < labels.size(); i++) {
+            ofxUILabel* l = labels[i];
+            if (labelName == l->getName()){
+                l->setVisible(true);
+                activeLabel = l;
+                triggerSelf();
+                break;
+            }
+            else {
+                l->setVisible(false);
+                for(unsigned int j = 0; j < labels.size(); j++){
+                    labels[j]->getRect()->y-=labels[j]->getPaddingRect()->getHeight();
+                }
+            }
+        }
+    }
+}
+
 string ofxUICarouselRadio::getActiveName(){
     return activeLabel->getName();
 }
 void ofxUICarouselRadio::addLabelName(string labelName){
     ofxUILabel *label = new ofxUILabel(0, 0, labelName,labelName, activeLabel->getSize());
     addEmbeddedWidget(label);
+    parent->addWidget(label);
     labels.push_back(label);
+
+    float lWidth = 0;
+    float lHeight = 0;
+
+    float xl = 0;
+    float yl = 0;
+
+
+    //Reposition elements with the first of the list as the first
+    if(orientation == OFX_UI_ORIENTATION_HORIZONTAL)
+    {
+    }
+    else
+    {
+        yl = upButton->getPaddingRect()->getHeight();
+        if(upButton->getPaddingRect()->width > lWidth){
+            lWidth = upButton->getPaddingRect()->width;//?!?
+        }
+        lHeight+= upButton->getPaddingRect()->height;
+    }
+    for(unsigned int i = 0; i < labels.size(); i++)
+    {
+        ofxUILabel* l = labels[i];
+        cout<<"i: "<<i<<" - label: "<<l->getName()<<endl;
+        if(orientation == OFX_UI_ORIENTATION_HORIZONTAL)
+        {
+        }
+        else
+        {
+            l->getRect()->x = 0;
+            l->getRect()->y = yl;
+            yl +=l->getPaddingRect()->getHeight();
+            if (i == 0){
+                lHeight+= l->getPaddingRect()->height;
+                l->setVisible(true);
+            }
+            else
+                l->setVisible(false);
+        }
+    }
 }
