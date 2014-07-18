@@ -196,6 +196,16 @@ enum ofxUITriggerType
     OFX_UI_TRIGGER_ALL      = 0x07
 };
 
+//Added by Leonardo Amico
+enum ofxUIArrowOrientation
+{
+    OFX_UI_ARROW_UP         = 0,
+    OFX_UI_ARROW_RIGHT      = 1,
+    OFX_UI_ARROW_DOWN       = 2,
+    OFX_UI_ARROW_LEFT       = 3
+};
+//
+
 #define ofxUITriggerType int
 
 enum ofxUIThemeType
