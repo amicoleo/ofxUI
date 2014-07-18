@@ -153,6 +153,12 @@
 		<Unit filename="../src/ofxUI2DPad.h">
 			<Option virtualFolder="addons/ofxUI/src" />
 		</Unit>
+		<Unit filename="../src/ofxUIArrowButton.cpp">
+			<Option virtualFolder="addons/ofxUI/src/" />
+		</Unit>
+		<Unit filename="../src/ofxUIArrowButton.h">
+			<Option virtualFolder="addons/ofxUI/src/" />
+		</Unit>
 		<Unit filename="../src/ofxUIBaseDraws.cpp">
 			<Option virtualFolder="addons/ofxUI/src" />
 		</Unit>
