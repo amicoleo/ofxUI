@@ -332,5 +332,5 @@ void ofxUIArrowButton::drawArrow(float x, float y, float w, float h, ofxUIArrowO
         ofVertex(x + w, y + h);
         ofVertex(x, y + h*.5);
     }
-    ofEndShape();
+    ofEndShape(true);
 }
