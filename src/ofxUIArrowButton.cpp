@@ -53,9 +53,14 @@ void ofxUIArrowButton::drawFill()
     {
         ofxUIFill();
         ofxUISetColor(color_fill);
-//        rect->draw();
-        //TODO - here should consider also if there's a rect parent - as the rect->draw() method does
-        drawArrow(rect->x, rect->y, rect->width, rect->height, arrowOrientation);
+        if(parent != NULL)
+        {
+            drawArrow(parent->getRect()->getX()+rect->x, parent->getRect()->getY()+rect->y, rect->width, rect->height, arrowOrientation);
+        }
+        else
+        {
+             drawArrow(rect->x,rect->y,rect->width,rect->height, arrowOrientation);
+        }
     }
 }
 void ofxUIArrowButton::drawBack(){
@@ -63,21 +68,42 @@ void ofxUIArrowButton::drawBack(){
     {
         ofxUIFill();
         ofxUISetColor(color_back);
-        drawArrow(rect->x, rect->y, rect->width, rect->height, arrowOrientation);
+        if(parent != NULL)
+        {
+            drawArrow(parent->getRect()->getX()+rect->x, parent->getRect()->getY()+rect->y, rect->width, rect->height, arrowOrientation);
+        }
+        else
+        {
+             drawArrow(rect->x,rect->y,rect->width,rect->height, arrowOrientation);
+        }
     }
 }
 void ofxUIArrowButton::drawOutline(){
     if(draw_outline) {
         ofxUINoFill();
         ofxUISetColor(color_outline);
-        drawArrow(rect->x, rect->y, rect->width, rect->height, arrowOrientation);
+        if(parent != NULL)
+        {
+            drawArrow(parent->getRect()->getX()+rect->x, parent->getRect()->getY()+rect->y, rect->width, rect->height, arrowOrientation);
+        }
+        else
+        {
+             drawArrow(rect->x,rect->y,rect->width,rect->height, arrowOrientation);
+        }
     }
 }
 void ofxUIArrowButton::drawFillHighlight(){
     if(draw_fill_highlight) {
         ofxUIFill();
         ofxUISetColor(color_fill_highlight);
-        drawArrow(rect->x, rect->y, rect->width, rect->height, arrowOrientation);
+        if(parent != NULL)
+        {
+            drawArrow(parent->getRect()->getX()+rect->x, parent->getRect()->getY()+rect->y, rect->width, rect->height, arrowOrientation);
+        }
+        else
+        {
+             drawArrow(rect->x,rect->y,rect->width,rect->height, arrowOrientation);
+        }
     }
 
 }
@@ -85,7 +111,14 @@ void ofxUIArrowButton::drawOutlineHighlight(){
     if(draw_outline_highlight) {
         ofxUINoFill();
         ofxUISetColor(color_outline_highlight);
-        drawArrow(rect->x, rect->y, rect->width, rect->height, arrowOrientation);
+        if(parent != NULL)
+        {
+            drawArrow(parent->getRect()->getX()+rect->x, parent->getRect()->getY()+rect->y, rect->width, rect->height, arrowOrientation);
+        }
+        else
+        {
+             drawArrow(rect->x,rect->y,rect->width,rect->height, arrowOrientation);
+        }
     }
 }
 

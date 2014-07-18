@@ -1,9 +1,10 @@
 #pragma once
 
-#include "ofxUIWidgetWithLabel.h"
+//#include "ofxUIWidgetWithLabel.h"
 #include "ofxUILabel.h"
 #include "ofxUIDefines.h"
 #include "ofxUIToggle.h"
+#include "ofxUIArrowButton.h"
 
 class ofxUICarouselRadio : public ofxUIWidget
 {
@@ -27,7 +28,7 @@ protected:
 	vector<ofxUILabel *> labels;
     ofxUILabel *activeLabel;
 
-    ofxUIButton *downButton;
-    ofxUIButton *upButton;
+    ofxUIArrowButton *downButton;
+    ofxUIArrowButton *upButton;
     bool bUpButton, bDownButton;
 };
