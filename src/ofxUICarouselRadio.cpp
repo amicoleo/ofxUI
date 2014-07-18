@@ -5,8 +5,8 @@ ofxUICarouselRadio::ofxUICarouselRadio(string _name, vector<string> names, int _
 
     bDownButton = false;
     bUpButton = false;
-    upButton = new ofxUIButton("up", &bUpButton, w, h);
-    downButton = new ofxUIButton("down", &bDownButton, w, h);
+    upButton = new ofxUIArrowButton("up", OFX_UI_ARROW_UP, &bUpButton, w, h);
+    downButton = new ofxUIArrowButton("down", OFX_UI_ARROW_DOWN, &bDownButton, w, h);
     addEmbeddedWidget(upButton);
     addEmbeddedWidget(downButton);
 }
