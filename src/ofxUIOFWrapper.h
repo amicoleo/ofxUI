@@ -1,17 +1,17 @@
 /**********************************************************************************
-
+ 
  Copyright (C) 2012 Syed Reza Ali (www.syedrezaali.com)
-
+ 
  Permission is hereby granted, free of charge, to any person obtaining a copy of
  this software and associated documentation files (the "Software"), to deal in
  the Software without restriction, including without limitation the rights to
  use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
  of the Software, and to permit persons to whom the Software is furnished to do
  so, subject to the following conditions:
-
+ 
  The above copyright notice and this permission notice shall be included in all
  copies or substantial portions of the Software.
-
+ 
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -19,7 +19,7 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
-
+ 
  **********************************************************************************/
 
 #pragma once
@@ -45,9 +45,9 @@ typedef ofColor ofxUIColor;
 
 class ofxUIAppCBGlue
 {
-public:
+public:        
     ofBaseApp *app;
-
+    
     void EnableCallbacks()
 	{
         enableAppDrawCallback();
@@ -61,7 +61,7 @@ public:
 #endif
         enableKeyEventCallbacks();
 	}
-
+	
 	void DisableCallbacks()
 	{
         disableAppDrawCallback();
@@ -75,7 +75,7 @@ public:
 #endif
         disableKeyEventCallbacks();
     }
-
+    
    	//App Callbacks
     void enableAppEventCallbacks()
     {
@@ -83,7 +83,7 @@ public:
         ofAddListener(ofEvents().draw, this, &ofxUIAppCBGlue::onDraw);
         ofAddListener(ofEvents().exit, this, &ofxUIAppCBGlue::onExit);
     }
-
+	
 	//App Callbacks
     void disableAppEventCallbacks()
     {
@@ -91,50 +91,50 @@ public:
         ofRemoveListener(ofEvents().draw, this, &ofxUIAppCBGlue::onDraw);
         ofRemoveListener(ofEvents().exit, this, &ofxUIAppCBGlue::onExit);
     }
-
+	
     void enableAppDrawCallback()
     {
         ofAddListener(ofEvents().draw, this, &ofxUIAppCBGlue::onDraw);
     }
-
+    
     void enableAppUpdateCallback()
     {
         ofAddListener(ofEvents().update, this, &ofxUIAppCBGlue::onUpdate);
     }
-
+    
     void enableAppExitCallback()
     {
         ofAddListener(ofEvents().exit, this, &ofxUIAppCBGlue::onExit);
     }
-
+    
     void disableAppDrawCallback()
     {
         ofRemoveListener(ofEvents().draw, this, &ofxUIAppCBGlue::onDraw);
     }
-
+    
     void disableAppUpdateCallback()
     {
         ofRemoveListener(ofEvents().update, this, &ofxUIAppCBGlue::onUpdate);
     }
-
+    
     void disableAppExitCallback()
     {
         ofRemoveListener(ofEvents().exit, this, &ofxUIAppCBGlue::onExit);
     }
-
+    
 #ifdef OFX_UI_TARGET_TOUCH
-
+	
 	//Touch Callbacks
     void enableTouchEventCallbacks()
     {
-
+        
         ofAddListener(ofEvents().touchUp, this, &ofxUIAppCBGlue::onTouchUp);
         ofAddListener(ofEvents().touchDown, this, &ofxUIAppCBGlue::onTouchDown);
         ofAddListener(ofEvents().touchMoved, this, &ofxUIAppCBGlue::onTouchMoved);
         ofAddListener(ofEvents().touchCancelled, this, &ofxUIAppCBGlue::onTouchCancelled);
         ofAddListener(ofEvents().touchDoubleTap, this, &ofxUIAppCBGlue::onTouchDoubleTap);
     }
-
+    
 	void disableTouchEventCallbacks()
     {
         ofRemoveListener(ofEvents().touchUp, this, &ofxUIAppCBGlue::onTouchUp);
@@ -143,9 +143,9 @@ public:
         ofRemoveListener(ofEvents().touchCancelled, this, &ofxUIAppCBGlue::onTouchCancelled);
         ofRemoveListener(ofEvents().touchDoubleTap, this, &ofxUIAppCBGlue::onTouchDoubleTap);
     }
-
+	
 #else
-
+	
 	//Mouse Callbacks
     void enableMouseEventCallbacks()
     {
@@ -154,7 +154,7 @@ public:
         ofAddListener(ofEvents().mouseMoved, this, &ofxUIAppCBGlue::onMouseMoved);
         ofAddListener(ofEvents().mouseDragged, this, &ofxUIAppCBGlue::onMouseDragged);
     }
-
+    
 	//Mouse Callbacks
     void disableMouseEventCallbacks()
     {
@@ -163,60 +163,60 @@ public:
         ofRemoveListener(ofEvents().mouseMoved, this, &ofxUIAppCBGlue::onMouseMoved);
         ofRemoveListener(ofEvents().mouseDragged, this, &ofxUIAppCBGlue::onMouseDragged);
     }
-
+    
     //Window Resize Callback
     void enableWindowEventCallbacks()
     {
         ofAddListener(ofEvents().windowResized, this, &ofxUIAppCBGlue::onWindowResized);
     }
-
+    
 	//Window Resize Callback
     void disableWindowEventCallbacks()
     {
         ofRemoveListener(ofEvents().windowResized, this, &ofxUIAppCBGlue::onWindowResized);
     }
-
+	
 #endif
-
+    
     //KeyBoard Callbacks
 	void enableKeyEventCallbacks()
 	{
 		ofAddListener(ofEvents().keyPressed, this, &ofxUIAppCBGlue::onKeyPressed);
 		ofAddListener(ofEvents().keyReleased, this, &ofxUIAppCBGlue::onKeyReleased);
 	}
-
+    
 	//KeyBoard Callbacks
 	void disableKeyEventCallbacks()
 	{
 		ofRemoveListener(ofEvents().keyPressed, this, &ofxUIAppCBGlue::onKeyPressed);
 		ofRemoveListener(ofEvents().keyReleased, this, &ofxUIAppCBGlue::onKeyReleased);
 	}
-
+    
     void onUpdate(ofEventArgs &data)
     {
         update();
     }
-
+        
     void onDraw(ofEventArgs &data)
     {
         draw();
     }
-
+        
     void onExit(ofEventArgs &data)
     {
         exit();
     }
-
+    
     void onKeyPressed(ofKeyEventArgs& data)
     {
 		keyPressed(data.key);
     }
-
+    
     void onKeyReleased(ofKeyEventArgs& data)
     {
 		keyReleased(data.key);
     }
-
+    
     virtual void onMousePressed(ofMouseEventArgs& data)
     {
         mousePressed(data.x, data.y, data.button);
@@ -231,7 +231,7 @@ public:
     {
         mouseReleased(data.x, data.y, data.button);
     }
-
+        
     virtual void onMouseMoved(ofMouseEventArgs& data)
     {
         mouseMoved(data.x, data.y);
@@ -241,64 +241,64 @@ public:
     {
 		windowResized(data.width, data.height);
     }
-
+    
     virtual void update()
     {
-
+        
     }
-
+    
     virtual void draw()
     {
-
+        
     }
-
+    
     virtual void exit()
     {
-
+        
     }
-
+    
     virtual void keyPressed(int key)
     {
-
+        
     }
-
+    
     virtual void keyReleased(int key)
     {
-
+        
     }
-
+    
     virtual void mousePressed(int x, int y, int button)
     {
-
+        
     }
 
     virtual void mouseDragged(int x, int y, int button)
     {
-
+        
     }
 
     virtual void mouseReleased(int x, int y, int button)
     {
-
+        
     }
-
+    
     virtual void mouseMoved(int x, int y)
     {
-
+        
     }
 
     virtual void windowResized(int w, int h)
     {
 
     }
-
+    
 #ifdef OFX_UI_TARGET_TOUCH
-
+	
     virtual void onTouchDown(ofTouchEventArgs &data)
     {
 		touchDown(data.x, data.y, data.id);
     }
-
+    
     virtual void onTouchMoved(ofTouchEventArgs &data)
     {
 		touchMoved(data.x, data.y, data.id);
@@ -313,35 +313,35 @@ public:
     {
 		touchDoubleTap(data.x, data.y, data.id);
     }
-
+    
 	virtual void onTouchCancelled(ofTouchEventArgs &data)
     {
 		touchCancelled(data.x, data.y, data.id);
     }
-
+    
     virtual void touchDown(float x, float y, int id)
     {
-
+        
     }
-
+    
     virtual void touchMoved(float x, float y, int id)
     {
-
+        
     }
-
+    
     virtual void touchUp(float x, float y, int id)
     {
-
+        
     }
-
+    
     virtual void touchDoubleTap(float x, float y, int id)
     {
-
+        
     }
 
     virtual void touchCancelled(float x, float y, int id)
     {
-
+        
     }
 
 #endif
@@ -377,7 +377,7 @@ static void ofxUIPushStyle()
 
 static void ofxUIPopStyle()
 {
-#ifndef TARGET_OPENGLES
+#ifndef TARGET_OPENGLES    
     glPopAttrib();
 #endif
     ofPopStyle();
@@ -410,12 +410,12 @@ static void ofxUIDrawRect(float x, float y, float w, float h)
 
 static void ofxUIDrawLine(float x1, float y1, float x2, float y2)
 {
-    ofLine(x1, y1, x2, y2);
+    ofLine(x1, y1, x2, y2); 
 }
 
 static int ofxUIGetHeight()
 {
-    return ofGetHeight();
+    return ofGetHeight(); 
 }
 
 static int ofxUIGetWidth()

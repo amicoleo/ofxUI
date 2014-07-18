@@ -61,5 +61,10 @@
 #include "ofxUIImage.h"
 #include "ofxUIBaseDraws.h"
 #include "ofxUIImageSampler.h"
+
+//Added by Leonardo Amico
 #include "ofxUIScrollableRadio.h"
 #include "ofxUICarouselRadio.h"
+#include "ofxUIArrowButton.h"
+//
+
