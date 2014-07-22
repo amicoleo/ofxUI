@@ -4,6 +4,7 @@
 #pragma once
 
 #include "ofxUIRadio.h"
+#include "ofxUIArrowButton.h"
 
 class ofxUIScrollableRadio: public ofxUIRadio
 {
@@ -19,8 +20,8 @@ public:
 
         float xBeginTogglesArea, yBeginTogglesArea, xEndTogglesArea, yEndTogglesArea;
 
-        ofxUIButton *downButton;
-        ofxUIButton *upButton;
+        ofxUIArrowButton *downButton;
+        ofxUIArrowButton *upButton;
         bool bUpButton, bDownButton;
 
 

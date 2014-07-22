@@ -11,8 +11,8 @@ ofxUIScrollableRadio::ofxUIScrollableRadio(string name, vector<string> names, in
 
     bDownButton = false;
     bUpButton = false;
-    upButton = new ofxUIButton("up", &bUpButton, w, h);
-    downButton = new ofxUIButton("down", &bDownButton, w, h);
+    upButton = new ofxUIArrowButton("up", OFX_UI_ARROW_UP, &bUpButton, w, h);
+    downButton = new ofxUIArrowButton("down", OFX_UI_ARROW_DOWN, &bDownButton, w, h);
     addEmbeddedWidget(upButton);
     addEmbeddedWidget(downButton);
 
@@ -26,7 +26,7 @@ void ofxUIScrollableRadio::triggerEvent(ofxUIWidget *child)
     }
     else {
         if (bUpButton && toggles[0]->getRect()->y < yBeginTogglesArea) {
-            ofxUIButton* b = (ofxUIButton*) child;
+            ofxUIArrowButton* b = (ofxUIArrowButton*) child;
             if(b->getValue()) {
                 for(unsigned int i = 0; i < toggles.size(); i++)
                 {
@@ -49,7 +49,7 @@ void ofxUIScrollableRadio::triggerEvent(ofxUIWidget *child)
             }
         }
         if (bDownButton && toggles[toggles.size()-1]->getRect()->y + toggles[toggles.size()-1]->getRect()->getHeight() > yEndTogglesArea) {
-            ofxUIButton* b = (ofxUIButton*) child;
+            ofxUIArrowButton* b = (ofxUIArrowButton*) child;
             if(b->getValue()) {
                 for(unsigned int i = 0; i < toggles.size(); i++)
                 {

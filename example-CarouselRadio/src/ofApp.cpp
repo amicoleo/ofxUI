@@ -21,6 +21,7 @@ void ofApp::setup(){
 
     ofBackground(10);
 	setGUI();
+	gui->loadSettings("settings.xml");
 }
 
 //--------------------------------------------------------------
@@ -48,6 +49,7 @@ void ofApp::guiEvent(ofxUIEventArgs &e)
 //--------------------------------------------------------------
 void ofApp::exit()
 {
+    gui->saveSettings("settings.xml");
 	delete gui;
 }
 
@@ -58,7 +60,7 @@ void ofApp::keyPressed(int key){
 
 void ofApp::setGUI()
 {
-	gui = new ofxUISuperCanvas("SCROLLABLE RADIO");
+	gui = new ofxUISuperCanvas("CAROUSEL RADIO");
     gui->addSpacer();
 
 
