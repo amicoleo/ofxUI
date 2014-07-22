@@ -17,10 +17,15 @@ public:
 	void setParent(ofxUIWidget *_parent);
 	void setActiveName(string labelName);
 	string getActiveName();
+	bool hasState(){ return true; };
 
 	//TODO - the method below works - but if the widget is updated after it has been added to the
 	//gui, it doesn't get drawn
     void addLabelName(string labelName);
+    #ifndef OFX_UI_NO_XML
+    virtual void saveState(ofxXmlSettings *XML);
+    virtual void loadState(ofxXmlSettings *XML);
+    #endif
 
 protected:
     string activeName;
