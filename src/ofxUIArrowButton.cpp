@@ -32,7 +32,7 @@ void ofxUIArrowButton::init(string _name, ofxUIArrowOrientation _arrowOrientatio
     arrowOrientation = _arrowOrientation;
     initRect(x,y,w,h);
     name = string(_name);
-    kind = OFX_UI_WIDGET_BUTTON;//TODO update
+    kind = OFX_UI_WIDGET_ARROWBUTTON;
 
     if(useReference)
     {
