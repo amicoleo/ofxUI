@@ -296,3 +296,19 @@ void ofxUICarouselRadio::addLabelName(string labelName){
         }
     }
 }
+
+
+#ifndef OFX_UI_NO_XML
+
+void ofxUICarouselRadio::saveState(ofxXmlSettings *XML)
+{
+    XML->setValue("Value", getActiveName(), 0);
+}
+
+void ofxUICarouselRadio::loadState(ofxXmlSettings *XML)
+{
+    string name = XML->getValue("Value", getActiveName(), 0);
+    setActiveName(name);
+}
+
+#endif
