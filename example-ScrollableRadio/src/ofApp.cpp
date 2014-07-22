@@ -4,6 +4,7 @@
 void ofApp::setup(){
     ofBackground(10);
 	setGUI();
+	gui->loadSettings("settings.xml");
 }
 
 //--------------------------------------------------------------
@@ -25,6 +26,7 @@ void ofApp::guiEvent(ofxUIEventArgs &e)
 //--------------------------------------------------------------
 void ofApp::exit()
 {
+    gui->saveSettings("settings.xml");
 	delete gui;
 }
 
