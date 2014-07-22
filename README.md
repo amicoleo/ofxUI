@@ -1,6 +1,10 @@
 ofxUI
 =====
 
+*Added two new scrollable radio widgets (ofxUICarouselRadio and ofxUIScrollableRadio) - currently just for vertical orientation. A triangular shaped button used as arrows in the new radios is also been added. Those are all quick hacks, there are likely to be bugs around.*
+
+
+
 A User Interface Library/Addon for openFrameworks
 
 ofxUI is an addon for openFrameworks (version 0.8.0+) that easily allows for the creation of user interfaces aka GUIs. ofxUI also takes care of widget layout, spacing, font loading, saving and loading settings, and widget callbacks. ofxUI can be easily customized (colors, font & widget sizes, padding, layout, etc).
