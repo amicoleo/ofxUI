@@ -132,8 +132,9 @@ enum ofxUIWidgetType
     OFX_UI_WIDGET_SORTABLELIST,
     OFX_UI_WIDGET_DRAGABLELABELBUTTON,
     OFX_UI_WIDGET_ENVELOPEEDITOR,
-    OFX_UI_WIDGET_SCROLLABLERADIO,  //Added by Leonardo Amico
-    OFX_UI_WIDGET_CAROUSELRADIO     //Added by Leonardo Amico
+    OFX_UI_WIDGET_SCROLLABLERADIO,   //Added by Leonardo Amico
+    OFX_UI_WIDGET_CAROUSELRADIO,     //Added by Leonardo Amico
+    OFX_UI_WIDGET_ARROWBUTTON        //Added by Leonardo Amico
 };
 
 enum ofxUIWidgetOrientation
