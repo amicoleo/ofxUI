@@ -1,10 +1,12 @@
+
 ofxUI
 =====
 
+***
 *Added two new scrollable radio widgets (ofxUICarouselRadio and ofxUIScrollableRadio) - currently just for vertical orientation. A triangular shaped button used as arrows in the new radios is also been added. Those are all quick hacks, there are likely to be bugs around.*
 
 *The updated working branch is develop-amicoleo*
-
+***
 
 
 A User Interface Library/Addon for openFrameworks
